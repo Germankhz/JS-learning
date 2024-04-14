@@ -494,3 +494,5 @@ function reverse(str) {
 	console.log(result);
 }
 reverse(someString);
+
+//add some new comments
