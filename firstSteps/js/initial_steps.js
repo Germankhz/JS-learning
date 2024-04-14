@@ -484,6 +484,7 @@ function standardizeStrings(arr) {
 standardizeStrings(favoriteCities);
 
 const someString = 'This is some strange string';
+console.log()
 
 function reverse(str) {
 	let result = '';
@@ -492,5 +493,4 @@ function reverse(str) {
 	}
 	console.log(result);
 }
-
 reverse(someString);
