@@ -496,3 +496,39 @@ function reverse(str) {
 reverse(someString);
 
 //add some new comments
+
+const baseCurrencies = ['USD', 'EUR'];
+const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+const arr1 = [];
+
+function availableCurr(arr, missingCurr) {
+    result = 'Доступные валюты:\n';
+    // arr = [...baseCurrencies, ...additionalCurrencies];
+    if (typeof(arr[0]) == 'undefined') {
+        console.log('Нет доступных валют');
+
+    } else {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] == missingCurr) {
+                continue;
+            } else {
+                result += `${arr[i]}\n`;
+            }
+        }
+    }
+    console.log(arr1);
+}
+
+availableCurr(arr1, 'UAH');
+
+// Основы объектно-ориентированного программирования, прототипно-ориентированное наследование
+const soldier = {
+	health: 400,
+	armor: 100
+}
+const john = {
+	health: 100
+}
+Object.setPrototypeOf(john, soldier); //установливает прототипно-оринтированную связь между объектом john и soldier, таким образом второй аргумент является прототипом для первого аргумента
+									  // т.е. для объекта john будут унаследовану свойства и методы от его прототипа даже если они для него явно не указаны
+const george = Object.create(soldier); //одномоментно создает объект с наследованием всех свойств, функйций и методов от прототипа (аргумент в скобках)
