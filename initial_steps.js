@@ -532,3 +532,66 @@ const john = {
 Object.setPrototypeOf(john, soldier); //установливает прототипно-оринтированную связь между объектом john и soldier, таким образом второй аргумент является прототипом для первого аргумента
 									  // т.е. для объекта john будут унаследовану свойства и методы от его прототипа даже если они для него явно не указаны
 const george = Object.create(soldier); //одномоментно создает объект с наследованием всех свойств, функйций и методов от прототипа (аргумент в скобках)
+
+const shoppingMallData = {
+    shops: [
+        {
+            width: 10,
+            length: 5
+        },
+        {
+            width: 15,
+            length: 7
+        },
+        {
+            width: 20,
+            length: 5
+        },
+        {
+            width: 8,
+            length: 10
+        }
+    ],
+    height: 5,
+    moneyPer1m3: 30,
+    budget: 50000
+};
+
+function isBudgetEnough(data) {
+    let totalSquare = 0;
+    for (let i = 0; i < shoppingMallData.shops.length; i++) {
+        totalSquare += shoppingMallData.shops[i]['width'] * shoppingMallData.shops[i]['length'];
+    }
+    const result = totalSquare * data['height'] * data['moneyPer1m3'];
+    console.log((result <= data['budget']) ? 'Бюджета достаточно' : 'Бюджета не достаточно');
+}
+
+isBudgetEnough(shoppingMallData);
+
+const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi'];
+
+function sortStudentsByGroups(arr) {
+    arr.sort();
+    let result = [[], [], [], 'Оставшиеся студенты: '];
+    for (let i = 0; i < 9; i++) {
+        if(i >= 0 && i < 3) {
+            result[0].push(arr[i]);
+        } else if(i >= 3 && i < 6) {
+            result[1].push(arr[i]);
+        } else if(i >= 6 && i < 9) {
+            result[2].push(arr[i]);
+        }
+    }
+    if (arr.length === 9) {
+        result[3] += ' -';
+    } else {
+        let subArr = [];
+        for (let i = 9; i < arr.length; i++) {
+            subArr.push(arr[i]);
+        }
+		let subStr = subArr.join(', ');
+		result[3] += subStr;
+    }
+    console.log(result);
+}
+sortStudentsByGroups(students);
